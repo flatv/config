@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: ${USERS_DB_URL:jdbc:postgresql://localhost:5432/postgres}
+    driver-class-name: org.postgresql.Driver
+
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  redis:
+    host: localhost
+    port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    group-id: email-sender-group-0
+    topic-name: email-send-topic
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8092/eureka/
+
+jwt:
+  token:
+    #15 минут
+    expired-access: ${JWT_TOKEN_EXPIRED_ACCESS:1800000}
+    #24 часа
+    expired-refresh: ${JWT_TOKEN_EXPIRED_REFRESH:86400000}
+    #15 минут
+    expired-preAuth: ${JWT_TOKEN_EXPIRED_PRE_AUTH:1800000}
