@@ -27,10 +27,5 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URI}
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8092/eureka/
-
 url:
   user-service: http://localhost:8082
