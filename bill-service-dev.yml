@@ -1,1 +1,36 @@
+spring:
+  datasource:
+    url: ${USERS_DB_URL:jdbc:postgresql://localhost:5433/postgres}
+    driver-class-name: org.postgresql.Driver
 
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  application:
+    name: bill-service
+
+  profiles:
+    active: dev
+
+  liquibase:
+    change-log: db/database_changelog-master.yaml
+    enabled: true
+
+  config:
+    import: rsa/keys.yaml
+
+server:
+  port: ${BILL_SERVICE_PORT:8081}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8092/eureka/
+
+url:
+  user-service: http://localhost:8082
