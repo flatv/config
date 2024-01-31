@@ -1,1 +1,65 @@
+spring:
+  application:
+    name: payment-service
+
+  profiles:
+    active: dev
+
+  liquibase:
+    change-log: db/database_changelog-master.yaml
+    enabled: true
+    driver-class-name: org.postgresql.Driver
+
+  r2dbc:
+    url: ${USERS_DB_URL:r2dbc:postgresql://localhost:5434/postgres}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    
+  # liquibase похоже не умеет ходить в базу через r2dbc, поэтому пускаем её через обычный драйвер
+  liquibase:
+    change-log: db/database_changelog-master.yaml
+    enabled: true
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5434/postgres
+    user: postgres
+    password: postgres
+
+  data:
+    mongodb:
+      username: root
+      password: test1234
+      database: admin
+      host: localhost
+      port: 27017
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8092/eureka/}
+
+url:
+  bill-service: ${URL_BILL_SERVICE}
+  user-service: ${URL_USER_SERVICE}
+
+server:
+  port: ${PAYMENT_SERVICE_PORT:8083}
+
+uri:
+  prefix: "api/v1/payment-service/legal-entities"
+
+url:
+  bill-service: http://localhost:8081
+  user-service: http://localhost:8082
+
+bill-service:
+  protocol: http
+  lb: bill-service
+
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+    path: /swagger-doc/v3/api-docs
+  swagger-ui:
+    path: /swagger-doc/swagger-ui.html
 
