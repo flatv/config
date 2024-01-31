@@ -1,1 +1,28 @@
+spring:
+  application:
+    name: deposit-service
+  datasource:
+    url: ${USERS_DB_URL:jdbc:postgresql://localhost:5435/postgres}
+    driver-class-name: org.postgresql.Driver
+
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+
+  liquibase:
+    change-log: db/database_changelog-master-dev.yaml
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8092/eureka/}
+
+server:
+  port: ${USER_SERVICE_PORT:8085}
 
