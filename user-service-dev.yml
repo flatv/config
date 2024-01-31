@@ -6,6 +6,10 @@ spring:
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:postgres}
 
+  liquibase:
+    change-log: db/database_changelog-master.yaml
+    enabled: true
+    
   redis:
     host: ${REDIS_HOST:localhost}
     port: ${REDIS_PORT:6379}
