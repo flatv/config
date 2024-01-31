@@ -26,3 +26,11 @@ eureka:
 
 url:
   user-service: http://localhost:8082
+
+rsa:
+  key:
+    public:
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhkzU2adLEQjMbyIgcwDYRRiUPiW+Hn0pavQukDB2zh083Qlpfwk/J2jwbjEekbX6XR
+      JlWkSkSt7VocJ9ishtSu8iPuzVBQ6lSQ/HqiQcUzY3dHpWgwFiYlML+PutyGomTRUFeYYY/4neTJbMEWZixhLveZ9jszhLwg9LD9kW67GtUTOq
+      zErn8wXrT0YoOzBBvnW21pYoUwQ+lL2+z0Iu8dcBRVlEkUoUqwy06fzbjWuv/7vMrPCWnTyuNn2S5sx2Cm35YJzUnLbA0jLT88KhueyX7wv1pS
+      fY9WAUk6ntpYh+qurTrdQhwiPKb4cQlncrolw+zoRqWJccNcX9/jxiZwIDAQAB
