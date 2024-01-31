@@ -7,11 +7,11 @@ spring:
     password: ${DB_PASSWORD:postgres}
 
   redis:
-    host: localhost
-    port: 6379
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     group-id: email-sender-group-0
     topic-name: email-send-topic
 
@@ -24,7 +24,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8092/eureka/
+      defaultZone: ${EUREKA_URI:http://localhost:8092/eureka/}
 
 jwt:
   token:
@@ -34,3 +34,6 @@ jwt:
     expired-refresh: ${JWT_TOKEN_EXPIRED_REFRESH:86400000}
     #15 минут
     expired-preAuth: ${JWT_TOKEN_EXPIRED_PRE_AUTH:1800000}
+
+attempts:
+  count: ${ATTEMPTS_COUNT:3}
